@@ -625,6 +625,7 @@ cards
     margin: 0 auto;
     box-sizing: border-box;
   }
+  .tech-scroll { display:flex; gap:15px; overflow-x:auto; padding:20px 0; scroll-behavior:auto; }
   .navbar {
     position: fixed;
     top: 0;
@@ -776,7 +777,7 @@ cards
     width: 100%;
     z-index: 9999;
   }
-
+  .tech-scroll { display:flex; gap:15px; overflow-x:auto; padding:20px 0; scroll-behavior:auto; }
   .section, 
   .contact-section {
     padding-left: 5vw;
