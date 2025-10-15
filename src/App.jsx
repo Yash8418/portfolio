@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import FeedbackPopup from './FeedbackPopup';
 
 const projects = [
   { title: "Estate Hub Real Estate Web App", desc: "MERN stack real estate platform with listing management, JWT authentication, and real-time chat via Socket.io.", github: "https://github.com/Yash8418/EstateHub", demo: "https://dummy-estatehub.com" },
@@ -290,6 +291,7 @@ function ContactSection() {
     </section>
   );
 }
+
 const Footer = () => (
   <footer className="footer" role="contentinfo">
     © {new Date().getFullYear()} Yash Prajapati • All Rights Reserved.
@@ -307,6 +309,7 @@ export default function Portfolio() {
       <Projects />
       <ResumeSection />
       <ContactSection />
+      <FeedbackPopup />
       <Footer />
     </div>
   );
