@@ -612,7 +612,9 @@ cards
   html, body {
     overflow-x: hidden; /* Prevent horizontal cut-off */
   }
-
+  body {
+    padding-top: 70px; /* adjust to navbar height */
+  }
   /* Use inner padding instead of margin to keep safe spacing */
   .section, 
   .contact-section, 
@@ -623,7 +625,13 @@ cards
     margin: 0 auto;
     box-sizing: border-box;
   }
-
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
   .nav-links {
     flex-wrap: wrap;
     gap: 10px;
@@ -678,7 +686,8 @@ cards
   .project-card {
     width: 95%;
     max-width: 90vw;
-    padding: 18px 18px;
+    padding: 18px 15px;
+    max-height: 230px;
   }
 
   #resume {
@@ -760,6 +769,13 @@ cards
   html, body {
     overflow-x: hidden;
   }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
 
   .section, 
   .contact-section {
@@ -768,7 +784,7 @@ cards
   }
 
   .hero {
-    padding: 60px 5vw 35px 5vw;
+    padding: 60px 5vw 35px 3vw;
   }
   .hero h1 {
     font-size: 1.6rem;
