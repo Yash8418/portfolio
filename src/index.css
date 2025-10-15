@@ -682,14 +682,15 @@ cards
   }
 
   #resume {
-    padding: 60px 4vw 40px 4vw;
+    /* padding: 60px 4vw 40px 4vw; */
+    padding: 60px 2vw 30px 2vw;
   }
   #resume h1, #resume h2 {
     text-align: center;
     font-size: 1.8rem;
   }
   #resume .resume-card {
-    padding: 28px 22px;
+    padding: 28px 18px;
     width: 90%;
   }
 
