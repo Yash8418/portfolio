@@ -609,11 +609,21 @@ cards
 
 /* General layout adjustments */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px 5vw;
+  html, body {
+    overflow-x: hidden; /* Prevent horizontal cut-off */
   }
+
+  /* Use inner padding instead of margin to keep safe spacing */
+  .section, 
+  .contact-section, 
+  #resume, 
+  .project-cards {
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
   .nav-links {
     flex-wrap: wrap;
     gap: 10px;
@@ -625,7 +635,7 @@ cards
   }
 
   .hero {
-    padding: 70px 0 40px 0;
+    padding: 70px 4vw 40px 4vw;
     text-align: center;
   }
   .hero-photo {
@@ -645,7 +655,8 @@ cards
   }
 
   .section {
-    padding: 40px 0 30px 0;
+    padding-top: 40px;
+    padding-bottom: 30px;
   }
   .section h2 {
     font-size: 1.7rem;
@@ -665,13 +676,13 @@ cards
     gap: 20px;
   }
   .project-card {
-    width: 100%;
-    max-width: 95vw;
-    padding: 18px 16px;
+    width: 95%;
+    max-width: 90vw;
+    padding: 18px 18px;
   }
 
   #resume {
-    padding: 60px 0 40px 0;
+    padding: 60px 4vw 40px 4vw;
   }
   #resume h1, #resume h2 {
     text-align: center;
@@ -683,7 +694,7 @@ cards
   }
 
   .contact-section {
-    padding: 40px 0;
+    padding: 40px 4vw;
   }
   .contact-description {
     font-size: 1rem;
@@ -693,11 +704,25 @@ cards
     flex-direction: column;
     gap: 20px;
   }
+
+  .section h2, 
+  .section-title, 
+  .contact-description {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .section + .section {
+    margin-top: 40px;
+  }
+
   .contact-form.card,
   .contact-social.card {
     max-width: 100%;
     min-width: unset;
-    padding: 1.5rem;
+    padding: 1.8rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .contact-input-row {
@@ -708,6 +733,8 @@ cards
   .contact-form textarea {
     font-size: 0.95rem;
     padding: 10px 14px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
   }
 
   .submit-btn,
@@ -729,6 +756,19 @@ cards
 
 /* Ultra small screens (like older phones or 360px width) */
 @media (max-width: 480px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .section, 
+  .contact-section {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .hero {
+    padding: 60px 5vw 35px 5vw;
+  }
   .hero h1 {
     font-size: 1.6rem;
   }
@@ -738,6 +778,14 @@ cards
   .hero-photo {
     width: 170px;
     height: 170px;
+  }
+
+  .contact-form.card,
+  .contact-social.card {
+    padding: 1.6rem;
+    width: 100%;
+    max-width: 94vw;
+    box-sizing: border-box;
   }
 
   .project-card h3 {
