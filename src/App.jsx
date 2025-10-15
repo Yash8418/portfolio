@@ -178,39 +178,44 @@ function ContactSection() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // Validation before sending
     const formData = new FormData(form.current);
-    const name = formData.get('user_name')?.trim();
-    const email = formData.get('user_email')?.trim();
-    const message = formData.get('message')?.trim();
+    const name = formData.get("user_name")?.trim();
+    const email = formData.get("user_email")?.trim();
+    const message = formData.get("message")?.trim();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!name || !email || !message) {
       setStatus({ sent: false, error: true });
-      // alert("Please fill in all fields before submitting.");
       return;
     }
 
-     // Validate email format
     if (!emailRegex.test(email)) {
-      setStatus({ sent: false, error: true });
       alert("Please enter a valid email address.");
+      setStatus({ sent: false, error: true });
       return;
     }
 
-
-    // Send email if validation passes
+    // 1️⃣ Send the main email (to you)
     emailjs
-      .sendForm(
-        "service_k160kl7",
-        "template_rcytrkr",
-        form.current,
-        "ajSJMAWyjkJPo_H_5"
-      )
+      .sendForm("service_k160kl7", "template_rcytrkr", form.current, "ajSJMAWyjkJPo_H_5")
       .then(() => {
         setStatus({ sent: true, error: false });
         form.current.reset();
+
+        // 2️⃣ Send automatic reply email to user
+        emailjs
+          .send(
+            "service_k160kl7",        // same service ID
+            "template_amfpq1e",     // your auto-reply template ID
+            {
+              name: name,
+              email: email,
+              // reply_message: "Thank you for reaching out! I'll get back to you soon.", // optional variable
+            },
+            "ajSJMAWyjkJPo_H_5"       // same public key
+          )
+          .catch((error) => console.error("Auto-reply error:", error));
       })
       .catch(() => setStatus({ sent: false, error: true }));
   };
@@ -223,12 +228,10 @@ function ContactSection() {
         As an alternative, you can find me on the platforms listed below.
       </p>
       <div className="contact-layout">
-        {/* Left Card - Form */}
         <form ref={form} className="contact-form card" onSubmit={sendEmail} noValidate>
           <div className="contact-input-row">
             <input type="text" name="user_name" placeholder="Your name" autoComplete="name" />
             <input type="email" name="user_email" placeholder="Your email address" autoComplete="email" />
-            {/* <textarea name="message" placeholder="Your message for me" rows={6} />   */}
           </div>
           <textarea name="message" placeholder="Your message for me" required rows={6} />
           {status.sent && <p className="form-status success">✅ Message sent!</p>}
@@ -236,7 +239,7 @@ function ContactSection() {
           <button type="submit" className="submit-btn">Submit</button>
         </form>
 
-      
+
           {/* Right Card - Social Links */}
           <div className="contact-social card">
             <div>
