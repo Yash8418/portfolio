@@ -30,13 +30,14 @@ export default function FeedbackPopup() {
 
   useEffect(() => {
     if (status.error) {
-        const timer = setTimeout(() => setStatus(s => ({ ...s, error: false })), 3000);
-        return () => clearTimeout(timer);
+      const timer = setTimeout(() => setStatus(s => ({ ...s, error: false })), 3000);
+      return () => clearTimeout(timer);
     }
-    }, [status.error]);
-  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }, [status.error]);
 
-  const sendFeedback = (e) => {
+  const validateEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const sendFeedback = e => {
     e.preventDefault();
     const form = formRef.current;
     const formData = new FormData(form);
@@ -81,13 +82,17 @@ export default function FeedbackPopup() {
             <p>We value your feedback 😊</p>
 
             <form ref={formRef} onSubmit={sendFeedback} noValidate>
-              <input type="email" name="user_email" placeholder="Your email" autoComplete="email" style={{paddingRight: "16px" ,boxSizing: "border-box"}}/>
+              <input
+                type="email"
+                name="user_email"
+                placeholder="Your email"
+                autoComplete="email"
+              />
               <textarea
                 name="message"
                 placeholder="Your feedback"
                 rows={5}
                 className="feedback-textarea"
-                style={{ resize: "none", boxSizing: "border-box" ,paddingRight: "16px"}}
               />
 
               {status.error && (
@@ -106,6 +111,7 @@ export default function FeedbackPopup() {
       )}
 
       <style>{`
+        /* ======= Base Styles ======= */
         .feedback-trigger {
           background: none;
           border: none;
@@ -136,9 +142,9 @@ export default function FeedbackPopup() {
           background: #fff;
           border-radius: 18px;
           box-shadow: 0 12px 40px rgba(32, 126, 230, 0.25);
-          max-width: 520px; /* ⬅ wider */
+          max-width: 520px;
           width: 92%;
-          min-height: 360px; /* ⬅ more height */
+          min-height: 360px;
           padding: 35px 34px 28px;
           position: relative;
           transform: scale(0.95);
@@ -152,13 +158,13 @@ export default function FeedbackPopup() {
           text-align: center;
           font-weight: 800;
         }
+
         .feedback-popup p {
           font-size: 1.05rem;
           color: #8899b6;
           text-align: center;
           margin-bottom: 22px;
         }
-          
 
         .feedback-popup input,
         .feedback-popup textarea {
@@ -169,9 +175,8 @@ export default function FeedbackPopup() {
           padding: 12px 14px;
           font-size: 1.05rem;
           margin-bottom: 12px;
-            resize: none; /* <-- disables manual resize */
-         padding-right: 16px; /* <-- add extra right padding */
           transition: all 0.15s ease;
+          box-sizing: border-box;
         }
 
         .feedback-popup input:focus,
@@ -182,14 +187,11 @@ export default function FeedbackPopup() {
           box-shadow: 0 0 0 3px rgba(29, 120, 224, 0.15);
         }
 
-        /* ✨ Better textarea feel */
         .feedback-textarea {
-          min-height: 110px; 
+          min-height: 120px;
           max-height: 220px;
           line-height: 1.5;
-          resize: "none",
-          
-          boxSizing: "border-box"
+          resize: none;
         }
 
         .send-btn {
@@ -218,10 +220,12 @@ export default function FeedbackPopup() {
           margin-bottom: 8px;
           font-size: 0.96rem;
         }
+
         .status.error {
           background: #fff3f4;
           color: #e63c3c;
         }
+
         .status.success {
           background: #e9fff4;
           color: #1dbf73;
@@ -238,10 +242,12 @@ export default function FeedbackPopup() {
           cursor: pointer;
           transition: color 0.2s;
         }
+
         .close-btn:hover {
           color: #1d78e0;
         }
 
+        /* ======= Animations ======= */
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
@@ -252,16 +258,57 @@ export default function FeedbackPopup() {
           to { opacity: 1; transform: scale(1); }
         }
 
-        @media (max-width: 480px) {
+        /* ======= Responsive Design ======= */
+        @media (max-width: 600px) {
           .feedback-popup {
-            max-width: 94vw;
-            padding: 24px 20px;
-            min-height: 330px;
+            max-width: 80vw;
+            width: 90%;
+            padding: 24px 24px;
+            min-height: 340px;
+          }
+
+          .feedback-popup h2 {
+            font-size: 1.2rem;
+          }
+
+          .feedback-popup p {
+            font-size: 0.95rem;
+          }
+
+          .feedback-popup input,
+          .feedback-popup textarea {
+            font-size: 0.95rem;
+            padding: 10px 12px;
+          }
+
+          .feedback-textarea {
+            min-height: 100px;
+          }
+
+          .send-btn {
+            font-size: 1rem;
+            padding: 10px 0;
+          }
+
+          .close-btn {
+            font-size: 24px;
+            top: 12px;
+            right: 14px;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .feedback-popup {
+            padding: 18px 16px;
+            min-height: 320px;
           }
           .feedback-popup h2 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
           }
           .feedback-popup p {
+            font-size: 0.9rem;
+          }
+          .send-btn {
             font-size: 0.95rem;
           }
         }

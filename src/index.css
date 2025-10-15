@@ -604,3 +604,158 @@ cards
   font-size: .92rem;
   background: #fff;
 }
+
+/* ======== MOBILE RESPONSIVE TWEAKS ======== */
+
+/* General layout adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 5vw;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .hero {
+    padding: 70px 0 40px 0;
+    text-align: center;
+  }
+  .hero-photo {
+    width: 200px;
+    height: 200px;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+  .hero-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section {
+    padding: 40px 0 30px 0;
+  }
+  .section h2 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+
+  .skill-bars {
+    gap: 16px;
+  }
+  .skill-label {
+    min-width: 120px;
+    font-size: 0.95rem;
+  }
+
+  .project-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .project-card {
+    width: 100%;
+    max-width: 95vw;
+    padding: 18px 16px;
+  }
+
+  #resume {
+    padding: 60px 0 40px 0;
+  }
+  #resume h1, #resume h2 {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  #resume .resume-card {
+    padding: 28px 20px;
+    width: 90%;
+  }
+
+  .contact-section {
+    padding: 40px 0;
+  }
+  .contact-description {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .contact-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-form.card,
+  .contact-social.card {
+    max-width: 100%;
+    min-width: unset;
+    padding: 1.5rem;
+  }
+
+  .contact-input-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contact-form input, 
+  .contact-form textarea {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+
+  .submit-btn,
+  .copy-btn {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+
+  .social-btn {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+    padding: 20px 0 8px 0;
+  }
+}
+
+/* Ultra small screens (like older phones or 360px width) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+  .hero-photo {
+    width: 170px;
+    height: 170px;
+  }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+  }
+  .project-card p {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-form textarea {
+    min-height: 160px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+}
