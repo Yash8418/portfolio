@@ -260,12 +260,12 @@ function ContactSection() {
                 <i className="fab fa-github" aria-hidden="true"></i> GitHub
               </a>
               <a
-                // href="#"
-                // className="social-btn dribbble"
-                // target="_blank"
-                // rel="noopener noreferrer"
+                href="https://medium.com/@y.d.prajapati04"
+                className="social-btn medium"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {/* <i className="fab fa-dribbble" aria-hidden="true"></i> Dribbble */}
+                <i className="fab fa-dribbble" aria-hidden="true"></i> Medium
               </a>
               <a
                 // href="#"

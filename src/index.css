@@ -562,6 +562,11 @@ cards
   color: #fff;
 }
 
+.social-btn.medium:hover {
+  background: #000000; /* Medium’s brand color */
+  color: #ffffff;
+}
+
 .social-btn.dribbble:hover {
   background: #ea4c89;
   color: #fff;
