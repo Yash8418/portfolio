@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import FeedbackPopup from './FeedbackPopup';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const projects = [
   { title: "Estate Hub Real Estate Web App", desc: "MERN stack real estate platform with listing management, JWT authentication, and real-time chat via Socket.io.", github: "https://github.com/Yash8418/EstateHub", demo: "https://dummy-estatehub.com" },
